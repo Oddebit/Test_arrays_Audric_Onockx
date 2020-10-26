@@ -1,15 +1,14 @@
 package be.intecbrussel;
 
-import java.util.Arrays;
-
 public class CharArrayTools {
 
     public static char[] filterAlphabet(char[] input) {
 
         int count = 0;
-        for (char cha : input) {
-            if (!('a' < cha && cha < 'z')) {
-                cha = 0;
+        for (int i = 0; i < input.length; i++) {
+
+            if ('a' > input[i] || input[i] > 'z') {
+                input[i] = 0;
                 count++;
             }
         }
@@ -17,7 +16,8 @@ public class CharArrayTools {
         char[] output = new char[input.length - count];
         int index = 0;
         for (char cha : input) {
-            if (cha == 0) {
+
+            if (cha != 0) {
                 output[index] = cha;
                 index++;
             }
@@ -63,7 +63,7 @@ public class CharArrayTools {
         char[] word = new char[length];
 
         for (int j = length - 1; j >= 0; j--) {
-            word[j] = toChar((int) (index / Math.pow(26, j)));
+            word[length - 1 - j] = toChar((int) (index / Math.pow(26, j)));
             index %= Math.pow(26, j);
         }
 

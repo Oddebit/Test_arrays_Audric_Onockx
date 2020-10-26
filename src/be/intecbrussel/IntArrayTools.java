@@ -1,7 +1,5 @@
 package be.intecbrussel;
 
-import java.util.Arrays;
-
 public class IntArrayTools {
 
     public static boolean isSorted(int[] nums, boolean ascending) {
